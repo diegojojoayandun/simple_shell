@@ -2,9 +2,11 @@
 
 
 /**
- * main - simple shell, display prompt, parse and execute
- * simple commands, mode interactive a non interactive
- * Return: int value
+ * main - simple shell, command interpreter, loops to
+ * display prompt, parse and execute simple commands
+ * with arguments on interactive a non interactive mode.
+ *
+ * Return: if successful 0
  */
 int main(void)
 {
@@ -32,9 +34,10 @@ int main(void)
 
 
 /**
- * read_line - simple prompt
+ * read_line - simple prompt "$" and read line from STDIN
+ * sets terminal on interactive and non intereactive mode
  *
- * Return: int value
+ * Return: buffer with the commands get from STDIN
  */
 char *read_line(void)
 {
@@ -61,10 +64,11 @@ char *read_line(void)
 
 
 /**
- * tokenize_line - function to split line arguments
+ * tokenize_line - function to split line arguments gets from STDIN
  *
- * @line: char pointer
- * Return: a char** with the tokenize string
+ * @line: contains the imput get from STDIN
+ *
+ * Return: The tokenize string
  */
 char **tokenize_line(char *line)
 {
@@ -107,8 +111,10 @@ char **tokenize_line(char *line)
 
 /**
  * exec_line - function to execute the commands parser
+ *
  * @args: double pointer that contains the parser commands
- * Return:  a  int value
+ *
+ * Return:  0 success
  */
 int exec_line(char **args)
 {
