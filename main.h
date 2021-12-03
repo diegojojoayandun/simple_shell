@@ -43,8 +43,6 @@ int exec_line(char **args);
 void __exit(char **ptr);
 void __env(void);
 void (*check_for_builtins(char **args))(char **args);
-
-void welcomeScreen(void);
 void _free(char **d_pointer);
 
 #endif
