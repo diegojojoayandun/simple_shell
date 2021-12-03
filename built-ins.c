@@ -34,8 +34,9 @@ void (*check_for_builtins(char **args))(char **args)
 }
 
 /**
- * __exit - exit program
+ * __exit - Built-in function to allow exit from terminal
  *
+ * @ptr: doouble pointer to be free
  * Return: void
  */
 void __exit(char **ptr)

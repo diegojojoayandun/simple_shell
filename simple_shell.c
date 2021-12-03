@@ -146,13 +146,14 @@ int exec_line(char **args)
 /**
  * welcomeScreen - welcome screen of our shell
  */
-void welcomeScreen(){
-        printf("\n\t============================================\n");
-        printf("\t               Simple C Shell\n");
-        printf("\t--------------------------------------------\n");
-        printf("\t           C16 Holberton School Cali\n");
+void welcomeScreen(void)
+{
+	printf("\n\t============================================\n");
+	printf("\t               Simple C Shell\n");
 	printf("\t--------------------------------------------\n");
-        printf("\t           	     2021\n");
-        printf("\t============================================\n");
-        printf("\n\n");
+	printf("\t           C16 Holberton School Cali\n");
+	printf("\t--------------------------------------------\n");
+	printf("\t			2021\n");
+	printf("\t============================================\n");
+	printf("\n\n");
 }
