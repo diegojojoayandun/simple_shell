@@ -2,8 +2,10 @@
 
 
 /**
- * check_for_builtins - get the function corresponding to especifier
- * @args: duoble pinter, store the command line buffer
+ * check_for_builtins - get the function corresponding to built-in name
+ *
+ * @args: double pointer, store the command line buffer
+ *
  * Return: return a function corresponding to especifier
  */
 void (*check_for_builtins(char **args))(char **args)
@@ -13,7 +15,7 @@ void (*check_for_builtins(char **args))(char **args)
 		{"env", __env},
 		{NULL, NULL}};
 
-	int i;
+	int i = 0;
 
 	if (args[0] == NULL)
 	{
@@ -21,7 +23,7 @@ void (*check_for_builtins(char **args))(char **args)
 		exit(0);
 	}
 
-	for (i = 0; builtins_list[i].name != NULL ; i++)
+	for (; builtins_list[i].name != NULL ; i++)
 	{
 		if (_strcmp(args[0], builtins_list[i].name) == 0)
 			break;
@@ -37,19 +39,17 @@ void (*check_for_builtins(char **args))(char **args)
  * __exit - Built-in function to allow exit from terminal
  *
  * @ptr: doouble pointer to be free
- * Return: void
+ *
  */
 void __exit(char **ptr)
 {
 	free(ptr);
 	exit(0);
-
 }
 
 
 /**
  * __env - prints the environmente vars
- *
  *
  * Return: void
  */
