@@ -5,13 +5,15 @@
  * main - simple shell, command interpreter, loops to
  * display prompt, parse and execute simple commands
  * with arguments on interactive a non interactive mode.
- *
+ * @argc: variable
+ * @argv: pointer
  * Return: if successful 0
  */
-int main(void)
+int main(int __attribute__((unused)) argc, char *argv[])
 {
 	char *line = NULL, **args = NULL;
 
+	shell_name = argv[0];
 	do {
 		line = read_line();
 
@@ -43,6 +45,7 @@ char *read_line(void)
 	int tty = 1;
 	size_t buffer_size = 0;
 
+	counted++;
 	isatty(STDIN_FILENO) == 0 ? tty = 0 : tty;
 
 	fflush(stdin);
@@ -133,7 +136,7 @@ int exec_line(char **args)
 		{
 			if (execve(get_path(args[0]), args, NULL) == -1)
 			{
-				perror("error");
+				__error(shell_name, counted, args[0]);
 				_free(args);
 				exit(EXIT_SUCCESS);
 			}
