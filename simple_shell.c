@@ -50,7 +50,7 @@ char *read_line(void)
 
 	fflush(stdin);
 
-	tty == 1 ? write(STDOUT_FILENO, "@ ", 2) : tty;
+	tty == 1 ? write(STDOUT_FILENO, "$ ", 2) : tty;
 
 	if (getline(&buffer, &buffer_size, stdin) == EOF)
 	{
@@ -138,7 +138,7 @@ int exec_line(char **args)
 			{
 				__error(shell_name, line_counter, args[0]);
 				_free(args);
-				exit(EXIT_SUCCESS);
+				exit(127);
 			}
 		}
 		else
