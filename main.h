@@ -27,7 +27,7 @@ typedef struct built_ins
 
 extern char **environ;
 char *shell_name;
-unsigned int line_counter;
+unsigned int counted;
 /* strings */
 int _strlen(const char *s);
 char *_strdup(char *str);
@@ -38,7 +38,6 @@ int _putchar(char c);
 void _puts_number(int size);
 
 char *get_path(char *command);
-char *_getenv(char *input);
 char **tokenize_line(char *line);
 char *read_line(void);
 int exec_line(char **args);
