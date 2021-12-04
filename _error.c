@@ -19,7 +19,7 @@ void __error(char *arg, int size, char *command)
 }
 
 /**
- * _puts_number - convert char to int
+ * _puts_number - prints char to int
  * @size: integer
  */
 
