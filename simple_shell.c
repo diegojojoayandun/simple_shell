@@ -45,12 +45,12 @@ char *read_line(void)
 	int tty = 1;
 	size_t buffer_size = 0;
 
-	counted++;
+	line_counter++;
 	isatty(STDIN_FILENO) == 0 ? tty = 0 : tty;
 
 	fflush(stdin);
 
-	tty == 1 ? write(STDOUT_FILENO, "$ ", 2) : tty;
+	tty == 1 ? write(STDOUT_FILENO, "@ ", 2) : tty;
 
 	if (getline(&buffer, &buffer_size, stdin) == EOF)
 	{
@@ -136,7 +136,7 @@ int exec_line(char **args)
 		{
 			if (execve(get_path(args[0]), args, NULL) == -1)
 			{
-				__error(shell_name, counted, args[0]);
+				__error(shell_name, line_counter, args[0]);
 				_free(args);
 				exit(EXIT_SUCCESS);
 			}
