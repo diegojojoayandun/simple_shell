@@ -107,3 +107,15 @@ int _puts(char *str)
 	write(STDOUT_FILENO, s, i);
 	return (i);
 }
+/**
+ * _putchar - prints a character
+ *
+ * @c: character to printed
+ *
+ * Return: integer
+ */
+
+int _putchar(char c)
+{
+	return (write(1, &c, 1));
+}
