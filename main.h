@@ -27,7 +27,7 @@ typedef struct built_ins
 
 extern char **environ;
 char *shell_name;
-unsigned int counted;
+unsigned int line_counter;
 /* strings */
 int _strlen(const char *s);
 char *_strdup(char *str);
