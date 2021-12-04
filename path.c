@@ -1,6 +1,28 @@
 #include "main.h"
 
 /**
+ * _getenv - retrieves env variable that matches input string
+* @input: input string
+* Return: string of env variable
+ */
+char *_getenv(char *input)
+{
+	char *tok, *path;
+
+	while (*environ)
+	{
+		tok = strtok(*environ, "=");
+		if (_strcmp(tok, input) == 0)
+		{
+			path = strtok(NULL, "=");
+			return (path);
+		}
+		environ++;
+	}
+	return (NULL);
+}
+
+/**
  * get_path - function
  *
  * @arg: args arg to find path
@@ -15,17 +37,12 @@ char *get_path(char *arg)
 	if (stat(arg, &stats) == 0)
 		return (arg);
 
-	while (*environ != NULL)
-	{
-		if (_strcmp(*environ, "PATH") == 0)
-			path =  *environ + _strlen("PATH") + 1;
-		environ++;
-	}
+	path = _getenv("PATH");
 
 	arg = str_concat("/", arg);
 	token = strtok(path, ":");
 
-	while (token != NULL)
+	while (token)
 	{
 		newpath = str_concat(token, arg);
 
@@ -37,8 +54,6 @@ char *get_path(char *arg)
 		free(newpath);
 		token = strtok(NULL, ":");
 	}
-
-	free(token);
 	free(arg);
-	return (arg);
+	return (NULL);
 }
