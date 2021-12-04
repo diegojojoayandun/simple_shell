@@ -38,6 +38,7 @@ int _putchar(char c);
 void _puts_number(int size);
 
 char *get_path(char *command);
+char *_getenv(char *input);
 char **tokenize_line(char *line);
 char *read_line(void);
 int exec_line(char **args);
