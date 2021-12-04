@@ -1,12 +1,45 @@
 #include "main.h"
 
+/**
+ * __error - show the specific error
+ * @arg: pointer
+ * @size: counter
+ * @command: pointer
+ */
+
 void __error(char *arg, int size, char *command)
 {
-	printf("%s", arg);
-	printf(": ");
-	printf("%d", size);
-	printf(": ");
-	printf("%s", command);
-	printf(": not found");
+	_puts(arg);
+	_puts(": ");
+	_puts_number(size);
+	_puts(": ");
+	_puts(command);
+	_puts(": not found");
+	_puts("\n");
+}
 
+/**
+ * _puts_number - convert char to int
+ * @size: integer
+ */
+
+void _puts_number(int size)
+{
+	int div, len;
+	unsigned int n1;
+
+	div = 1;
+	len = 0;
+
+	n1 = size;
+
+	for (; n1 / div > 9; )
+		div *= 10;
+
+	for (; div != 0; )
+	{
+		len += _putchar('0' + n1 / div);
+		n1 %= div;
+		div /= 10;
+	}
 }
