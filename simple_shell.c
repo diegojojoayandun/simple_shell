@@ -9,11 +9,13 @@
  * @argv: pointer
  * Return: if successful 0
  */
-int main(int __attribute__((unused)) argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	char *line = NULL, **args = NULL;
 
+	(void)argc;
 	shell_name = argv[0];
+
 	do {
 		line = read_line();
 
@@ -49,12 +51,12 @@ char *read_line(void)
 	fflush(stdin);
 
 	if (isatty(STDIN_FILENO))
-		write(STDOUT_FILENO, "$ ", 2);
+		_puts("$ ");
 
 	if (getline(&buffer, &buffer_size, stdin) == EOF)
 	{
 		if (isatty(STDOUT_FILENO))
-			write(STDOUT_FILENO, "\n", 1);
+			_puts("\n");
 		free(buffer);
 		exit(EXIT_SUCCESS);
 	}
@@ -82,7 +84,6 @@ char **tokenize_line(char *line)
 		exit(EXIT_FAILURE);
 	}
 
-
 	token = strtok(line, " \t\n");
 
 	while (token != NULL)
@@ -101,10 +102,8 @@ char **tokenize_line(char *line)
 				exit(EXIT_FAILURE);
 			}
 		}
-
 		token = strtok(NULL, " \t\n");
 	}
-
 	tokens[i] = NULL;
 	return (tokens);
 }
@@ -145,6 +144,5 @@ int exec_line(char **args)
 			wait(&status);
 		}
 	}
-
 	return (0);
 }

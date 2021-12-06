@@ -38,13 +38,13 @@ int _strlen(const char *s)
 
 
 /**
- * *str_concat - concatenates two strings
+ * *_strcat - concatenates two strings
  * @s1: string to concatenate
  * @s2: other string to concatenate
  *
  * Return: pointer to the new string created (Success), or NULL (Error)
  */
-char *str_concat(char *s1, char *s2)
+char *_strcat(char *s1, char *s2)
 {
 	char *s3;
 	unsigned int i = 0, j = 0, len1 = 0, len2 = 0;

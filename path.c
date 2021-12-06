@@ -23,9 +23,9 @@ char *_getenv(char *input)
 }
 
 /**
- * get_path - function
+ * get_path - function to get the path to executable
  *
- * @arg: args arg to find path
+ * @arg: arg to find path
  *
  * Return: char pointer with the path
  */
@@ -39,12 +39,12 @@ char *get_path(char *arg)
 
 	path = _getenv("PATH");
 
-	arg = str_concat("/", arg);
+	arg = _strcat("/", arg);
 	token = strtok(path, ":");
 
 	while (token)
 	{
-		newpath = str_concat(token, arg);
+		newpath = _strcat(token, arg);
 
 		if (stat(newpath, &stats) == 0)
 		{
