@@ -33,7 +33,7 @@ int _strlen(const char *s);
 char *_strdup(char *str);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *s1, char *s2);
-int _puts(char *envi);
+int _puts(char *str);
 int _putchar(char c);
 void _puts_number(int size);
 
