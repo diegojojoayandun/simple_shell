@@ -44,7 +44,7 @@ void (*check_for_builtins(char **args))(char **args)
 void __exit(char **ptr)
 {
 	free(ptr);
-	exit(0);
+	exit(2);
 }
 
 
