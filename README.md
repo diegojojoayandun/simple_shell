@@ -1,4 +1,4 @@
-# _printf Function
+# simple shell
 
 ## this is a README.md for Repository 0x16. C - simple_shell
 
@@ -36,23 +36,55 @@ For this project, students are expected to look at these concepts:
 
 # Ejecutando las pruebas
 
-        int len;
-	int len2;
+$ dddd
+./hsh: 3: dddd: not found
 
-    len = _printf("Let's try to printf a simple sentence.\n");
-    len2 = printf("Let's try to printf a simple sentence.\n");
-    ui = (unsigned int)INT_MAX + 1024;
-    addr = (void *)0x7ffe637541f0;
-    _printf("Length:[%d, %i]\n", len, len);
-    printf("Length:[%d, %i]\n", len2, len2);
-    _printf("Character:[%c]\n", 'H');
-    printf("Character:[%c]\n", 'H');
-    _printf("String:[%s]\n", "I am a string !");
-    printf("String:[%s]\n", "I am a string !");
-    len = _printf("Percent:[%%]\n");
-    len2 = printf("Percent:[%%]\n");
-    _printf("Len:[%d]\n", len);
-    printf("Len:[%d]\n", len2);
+code:
+ #include "main.h"
+
+  /**
+   * __error - show the specific error
+   * @arg: pointer
+   * @size: counter
+   * @command: pointer
+   */
+
+ void __error(char *arg, int size, char *command)
+ {
+         _puts(arg);
+         _puts(": ");
+         _puts_number(size);
+         _puts(": ");
+         _puts(command);
+         _puts(": not found");
+         _puts("\n");
+ }
+
+ /**
+  * _puts_number - convert char to int
+  * @size: integer
+  */
+
+ void _puts_number(int size)
+ {
+            int div, len;
+            unsigned int n1;
+
+           div = 1;
+           len = 0;
+
+           n1 = size;
+
+           for (; n1 / div > 9; )
+                   div *= 10;
+
+           for (; div != 0; )
+              {
+                    len += _putchar('0' + n1 / div);
+                    n1 %= div;
+                    div /= 10
+              }
+  }
 							```
 
 Author

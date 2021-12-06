@@ -8,21 +8,29 @@
 .SH SYNOPSIS
 
 .B      #include "main.h"
-\fB    int _strlen(const char *s);
-\fB    char *_strdup(char *str);
-\fB    int _strcmp(char *s1, char *s2);
-\fB    char *str_concat(char *s1, char *s2);
-\fB    int _puts(char *envi);
-\fB    char *get_path(char *command);
-\fB    char **tokenize_line(char *line);
-\fB    char *read_line(void);
-\fB    int exec_line(char **args);
-       /* built-ins */
-\fB    void __exit(char **ptr);
-\fB    void __env(void);
-\fB    void (*check_for_builtins(char **args))(char **args);
-\fB    void welcomeScreen(void);
-\fB    void _free(char **d_pointer);
+\fB   extern char **environ;
+\fB   char *shell_name;
+\fB   unsigned int counted;
+      /* strings */
+\fB   int _strlen(const char *s);
+\fB   char *_strdup(char *str);
+\fB   int _strcmp(char *s1, char *s2);
+\fB   char *str_concat(char *s1, char *s2);
+\fB   int _puts(char *envi);
+\fB   int _putchar(char c);
+\fB   void _puts_number(int size);
+
+\fB   char *get_path(char *command);
+\fB   char **tokenize_line(char *line);
+\fB   char *read_line(void);
+\fB   int exec_line(char **args);
+
+      /* built-ins */
+\fB   void __exit(char **ptr);
+\fB   void __env(void);
+\fB   void (*check_for_builtins(char **args))(char **args);
+\fB   void _free(char **d_pointer);
+\fB   void __error(char *arg, int size, char *command);
 
 .SH DESCRIPTION
 
