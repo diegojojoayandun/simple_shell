@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 
 	(void)argc;
 	shell_name = argv[0];
-
+	signal(SIGINT, sigint_handler);
 	do {
 		line = read_line();
 

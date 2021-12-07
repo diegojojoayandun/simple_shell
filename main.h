@@ -8,6 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <signal.h>
 
 #define BUFSIZE 64
 
@@ -49,5 +50,7 @@ void __env(void);
 void (*check_for_builtins(char **args))(char **args);
 void _free(char **d_pointer);
 void __error(char *arg, int size, char *command);
+
+void sigint_handler(int sigint);
 
 #endif

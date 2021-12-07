@@ -43,3 +43,17 @@ void _puts_number(int size)
 		div /= 10;
 	}
 }
+
+
+/**
+ * sigintHandler - catches SIGINT signal and reset signal
+ * @sigint: signal from stdint
+ */
+void sigint_handler(int sigint)
+{
+	(void)sigint;
+	signal(SIGINT, sigint_handler);
+	_puts("\n");
+	_puts("$ ");
+	fflush(stdout);
+}
