@@ -20,7 +20,7 @@ The simple shell is an simple application that reads lines from the terminal, in
 
 ## Requirements
 
-simple_shell is designed to run in the `Ubuntu 14.04.5 LTS` linux environment and to be compiled using the GNU compiler with flags`-Wall, -Werror, -Wextra, and -pedantic.`
+simple_shell is designed to run in the `Ubuntu 20.04.5 LTS` linux environment and to be compiled using the GNU compiler with flags`-Wall, -Werror, -Wextra, and -pedantic.`
 
 ## Installation
 
