@@ -2,6 +2,7 @@
 
 ## Our Gates of sHELL. 0x16. C - simple_shell
 
+![Gates of Shell](https://i.imgur.com/yLxaiet.jpg)
 ```
 For Holberton School.
 Cohort 16.
