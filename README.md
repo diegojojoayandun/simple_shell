@@ -2,13 +2,12 @@
 
 ## Our Gates of sHELL. 0x16. C - simple_shell
 
-![Gates of Shell](https://i.imgur.com/yLxaiet.jpg)
 ```
 For Holberton School.
 Cohort 16.
 ```
    By Julien Barbier, co-founder & CEO
-   Project to be done in teams of 2 people (your team: Daniel Rivera, Diego jojoa.
+   Project to be done in teams of 2 people (our team: Daniel Rivera, Diego jojoa.
    Ongoing project - started 11-25-2021, must end by 12-09-2021 (in 14 days) - you're done with 0% of tasks.
    Checker will be released at 12-07-2021 09:07 PM.
    Manual QA review must be done (request it when you are done with the project)
