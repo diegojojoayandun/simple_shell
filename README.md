@@ -1,6 +1,6 @@
 # simple shell
 
-## this is a README.md for Repository 0x16. C - simple_shell
+## Our Gates of sHELL. 0x16. C - simple_shell
 
 ```
 For Holberton School.
@@ -14,10 +14,20 @@ Cohort 16.
    QA review fully automated.
 		  ```
 
-For this project, students are expected to look at these concepts:
-...
-* Everything you need to know to start coding your own shell
-* Approaching a Project
+## Description
+
+The simple shell is an simple application that reads lines from the terminal, interprets them, and executes them. This shell includes simple basic functionality of a traditional Unix-like command line user interface. Standard functions and system calls employed in simple_shell include: `stat, execve, exit, fork, free, getline, malloc, perror, wait, write.`
+
+# Requirements
+
+simple_shell is designed to run in the `Ubuntu 14.04.5 LTS` linux environment and to be compiled using the GNU compiler with flags`-Wall, -Werror, -Wextra, and -pedantic.`
+
+# Installation
+
+   - Compile: `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`
+   - Run the shell in interactive mode: `./hsh`
+   - Run the shell in non-interactive mode:
+   - Example `echo "ls -l" | ./hsh`
 
 ## Files included
 
