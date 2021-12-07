@@ -1,4 +1,4 @@
-# SIMMPLE SHELL
+# SIMPLE SHELL
 
 ## Our Gates of sHELL. 0x16. C - simple_shell
 
@@ -18,11 +18,11 @@ Cohort 16.
 
 The simple shell is an simple application that reads lines from the terminal, interprets them, and executes them. This shell includes simple basic functionality of a traditional Unix-like command line user interface. Standard functions and system calls employed in simple_shell include: `stat, execve, exit, fork, free, getline, malloc, perror, wait, write.`
 
-# Requirements
+## Requirements
 
 simple_shell is designed to run in the `Ubuntu 14.04.5 LTS` linux environment and to be compiled using the GNU compiler with flags`-Wall, -Werror, -Wextra, and -pedantic.`
 
-# Installation
+## Installation
 
    - Compile: `gcc -Wall -Werror -Wextra -pedantic *.c -o hsh`
    - Run the shell in interactive mode: `./hsh`
@@ -56,7 +56,7 @@ Our shell has support for the following built-in commands:
 
 | Command             | Definition                                                                                |
 | ------------------- | ----------------------------------------------------------------------------------------- |
-| exit [n]            | Exit the shell, with an optional exit status, n.                                          |
+| exit                | Exit the shell, with an optional exit status, n.                                          |
 | env                 | Print the environment.                                                                    |
 
 
@@ -73,62 +73,26 @@ Our shell has support for the following built-in commands:
 | [built-ins.c](./hsh)	 | get the built-in function accord to a command |
 | [_string.c](./hsh)	 | compare count and concatenate the strings	 |
 
-# simple shell
+## Examples
 
-# Ejecutando las pruebas
+```sh
+$ ls -l
+total 8
+drwxrwxr-x 1 vagrant vagrant Dec 2 13:23 hsh
+drwxrwxr-x 2 vagrant vagrant Dec 2 20:30 README.md
+```
 
-$ dddd
-./hsh: 3: dddd: not found
+```sh
+$ /bin/pwd
+/home/vagrant/shell
+```
 
-code:
- #include "main.h"
+```sh
+$ hello world
+./hsh: 1: hello: not found
+```
 
-  /**
-   * __error - show the specific error
-   * @arg: pointer
-   * @size: counter
-   * @command: pointer
-   */
-
- void __error(char *arg, int size, char *command)
- {
-         _puts(arg);
-         _puts(": ");
-         _puts_number(size);
-         _puts(": ");
-         _puts(command);
-         _puts(": not found");
-         _puts("\n");
- }
-
- /**
-  * _puts_number - convert char to int
-  * @size: integer
-  */
-
- void _puts_number(int size)
- {
-            int div, len;
-            unsigned int n1;
-
-           div = 1;
-           len = 0;
-
-           n1 = size;
-
-           for (; n1 / div > 9; )
-                   div *= 10;
-
-           for (; div != 0; )
-              {
-                    len += _putchar('0' + n1 / div);
-                    n1 %= div;
-                    div /= 10
-              }
-  }
-							```
-
-Author
+## Authors
 ```
 * **Diego Jojoa @diegojojoayandun** - [Diegojojoa](https://github.com/diegojojoayandun)
 * **Daniel Ruiz @ruizdani301** - [DanielRuiz](https://github.com/ruizdani301)
