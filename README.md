@@ -1,4 +1,4 @@
-# simple shell
+# SIMMPLE SHELL
 
 ## Our Gates of sHELL. 0x16. C - simple_shell
 
@@ -29,6 +29,37 @@ simple_shell is designed to run in the `Ubuntu 14.04.5 LTS` linux environment an
    - Run the shell in non-interactive mode:
    - Example `echo "ls -l" | ./hsh`
 
+
+## Usage
+
+After compilation, the resulting program can run in interactive or non-interactive mode.
+
+#### Interactive Mode
+
+In interactive mode, simply run the program and wait for the prompt to appear. From there, you can type commands freely,
+
+Example `pwd` , `ls -l`, `echo "Hola mundo!"`, `etc.`
+
+#### Non-Interactive Mode
+
+In non-interactive mode, echo your desired command and pipe it into the program like this:
+
+```sh
+echo "ls" | ./hsh
+```
+
+In non-interactive mode, the program will exit after finishing your desired command(s).
+
+#### Included Built-Ins
+
+Our shell has support for the following built-in commands:
+
+| Command             | Definition                                                                                |
+| ------------------- | ----------------------------------------------------------------------------------------- |
+| exit [n]            | Exit the shell, with an optional exit status, n.                                          |
+| env                 | Print the environment.                                                                    |
+
+
 ## Files included
 
 
@@ -37,9 +68,9 @@ simple_shell is designed to run in the `Ubuntu 14.04.5 LTS` linux environment an
 | [simple_shell.c](./hsh)| interpret a command and display it in output  |
 | [main.h](./hsh)        | containts all the prototypes                  |
 | [path.c](./hsh)        | compares the strings of the PATH 		 |
-| [codes.c](./hsh)	 | functions for printing strings                |
+| [codes.c](./hsh)	 | functions for printing and handle strings     |
 | [free.c](./hsh)	 | function for free a double pointer	         |
-| [built-ins.c](./hsh)	 | get the function corresponding to especifier  |
+| [built-ins.c](./hsh)	 | get the built-in function accord to a command |
 | [_string.c](./hsh)	 | compare count and concatenate the strings	 |
 
 # simple shell
