@@ -6,7 +6,6 @@
  * @size: counter
  * @command: pointer
  */
-
 void __error(char *arg, int size, char *command)
 {
 	_puts(arg);
