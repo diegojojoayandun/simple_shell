@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	do {
 		line = read_line();
 
-		if (check_for_builtins(&line))
+		if (check_for_builtins(&line) == 1)
 		{
 			free(line);
 			continue;
@@ -103,6 +103,7 @@ char **tokenize_line(char *line)
 		}
 		token = strtok(NULL, " \t\n");
 	}
+
 	tokens[i] = NULL;
 	return (tokens);
 }
@@ -119,7 +120,7 @@ int exec_line(char **args)
 	pid_t pid;
 	int status;
 
-	if (args[0] != NULL || args == NULL)
+	if (args[0] != NULL && args != NULL)
 	{
 		pid = fork();
 
@@ -133,7 +134,7 @@ int exec_line(char **args)
 		{
 			if (execve(get_path(args[0]), args, environ) == -1)
 			{
-				__error(shell_name, line_counter, args[0]);
+				/*__error(shell_name, line_counter, args[0]);*/
 				_free(args);
 				exit(127);
 			}

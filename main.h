@@ -12,6 +12,15 @@
 
 #define BUFSIZE 64
 
+#define NONE "\033[m"
+#define RED "\033[1;37;41m"
+#define YELLOW "\033[1;33m"
+#define CYAN "\033[0;36m"
+#define GREEN "\033[0;32;32m"
+#define GRAY "\033[1;30m"
+#define BLUE "\033[0;34m"
+#define PURPLE "\033[0;35m"
+
 /**
  * struct built_ins - Associate a command with its funtion
  *
@@ -28,6 +37,7 @@ typedef struct built_ins
 
 extern char **environ;
 char *shell_name;
+char *prompt;
 unsigned int line_counter;
 /* strings */
 int _strlen(const char *s);
@@ -47,10 +57,12 @@ int exec_line(char **args);
 /* built-ins */
 void __exit(char **ptr);
 void __env(void);
-void (*check_for_builtins(char **args))(char **args);
+int check_for_builtins(char **args);
 void _free(char **d_pointer);
 void __error(char *arg, int size, char *command);
 
 void sigint_handler(int sigint);
+
+void custom_prompt(char *color_prompt, char *color_text);
 
 #endif

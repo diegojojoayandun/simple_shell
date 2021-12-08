@@ -31,14 +31,14 @@ char *_getenv(char *input)
  */
 char *get_path(char *arg)
 {
-	char *path, *token, *newpath;
+	char *path, *token, *newpath, *str_cpy;
 	struct stat stats;
 
 	if (stat(arg, &stats) == 0)
 		return (arg);
 
 	path = _getenv("PATH");
-
+	str_cpy = arg;
 	arg = _strcat("/", arg);
 	token = strtok(path, ":");
 
@@ -54,6 +54,9 @@ char *get_path(char *arg)
 		free(newpath);
 		token = strtok(NULL, ":");
 	}
+	__error(shell_name, line_counter, str_cpy);
 	free(arg);
+	/*exit(127);*/
+
 	return (NULL);
 }
