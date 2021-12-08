@@ -43,8 +43,11 @@ void (*check_for_builtins(char **args))(char **args)
  */
 void __exit(char **ptr)
 {
+	int _err = 0;
+	if (line_counter > 1)
+		_err = 2;
 	free(ptr);
-	exit(0);
+	exit(_err);
 }
 
 
