@@ -46,7 +46,7 @@ void _puts_number(int size)
 
 
 /**
- * sigintHandler - catches SIGINT signal and reset signal
+ * sigint_handler - catches SIGINT signal and reset signal
  * @sigint: signal from stdint
  */
 void sigint_handler(int sigint)
