@@ -78,7 +78,7 @@ char **tokenize_line(char *line)
 {
 	int bufsize = BUFSIZE, i = 0;
 	char **tokens = malloc(bufsize * sizeof(char *));
-	char *token;
+	char *token = NULL;
 
 	if (tokens == NULL)
 	{
@@ -121,6 +121,7 @@ char **tokenize_line(char *line)
 int exec_line(char **args)
 {
 	pid_t pid;
+	char *path = NULL;
 	int status;
 
 	if (args[0] != NULL && args != NULL)
@@ -135,12 +136,20 @@ int exec_line(char **args)
 
 		if (pid == 0)
 		{
-			if (execve(get_path(args[0]), args, environ) == -1)
+			path = get_path(args[0]);
+
+			if (path != NULL)
 			{
+				if (execve(get_path(path), args, NULL) == -1)
+				{
 				/*__error(shell_name, line_counter, args[0]);*/
 				_free(args);
 				exit(127);
+				}
+
 			}
+
+
 		}
 		else
 		{
