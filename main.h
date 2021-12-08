@@ -55,9 +55,9 @@ char *read_line(void);
 int exec_line(char **args);
 
 /* built-ins */
+void (*check_for_builtins(char **args))(char **args);
 void __exit(char **ptr);
 void __env(void);
-int check_for_builtins(char **args);
 void _free(char **d_pointer);
 void __error(char *arg, int size, char *command);
 

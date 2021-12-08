@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	do {
 		line = read_line();
 
-		if (check_for_builtins(&line) == 1)
+		if (check_for_builtins(&line))
 		{
 			free(line);
 			continue;
