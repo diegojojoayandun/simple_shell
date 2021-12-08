@@ -135,7 +135,7 @@ int exec_line(char **args)
 
 		if (pid == 0)
 		{
-			if (execve(get_path(args[0]), args, NULL) == -1)
+			if (execve(get_path(args[0]), args, environ) == -1)
 			{
 				/*__error(shell_name, line_counter, args[0]);*/
 				_free(args);
