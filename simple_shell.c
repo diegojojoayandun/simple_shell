@@ -12,14 +12,8 @@
 int main(int argc, char *argv[])
 {
 	char *line = NULL, **args = NULL;
-	char *shell_name;
-	char *prompt;
-	unsigned int line_counter;
 
 	(void)argc;
-	(void)prompt;
-	(void)line_counter;
-	(void)shell_name;
 
 	shell_name = argv[0];
 
@@ -55,7 +49,7 @@ char *read_line(void)
 	char *buffer = NULL;
 	size_t buffer_size = 0;
 
-
+	line_counter++;
 
 	fflush(stdin);
 

@@ -54,9 +54,8 @@ char *get_path(char *arg)
 		free(newpath);
 		token = strtok(NULL, ":");
 	}
-	__error(".hsh", 1, str_cpy);
+	__error(shell_name, line_counter, str_cpy);
 	free(arg);
-	/*exit(127);*/
 
 	return (NULL);
 }

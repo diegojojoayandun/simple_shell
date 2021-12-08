@@ -36,7 +36,9 @@ typedef struct built_ins
 } builtins_t;
 
 extern char **environ;
-
+char *shell_name;
+char *prompt;
+unsigned int line_counter;
 /* strings */
 int _strlen(const char *s);
 char *_strdup(char *str);
