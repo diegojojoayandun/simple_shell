@@ -112,7 +112,7 @@ char **tokenize_line(char *line)
 }
 
 /**
- * exec_line - function to execute the commands parser
+ * exec_line - function to execute the commands parser.
  *
  * @args: double pointer that contains the parser commands
  *
