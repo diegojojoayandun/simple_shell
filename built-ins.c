@@ -6,9 +6,9 @@
  *
  * @args: double pointer, store the command line buffer
  *
- * Return: return a function corresponding to especifier
+ * Return: return 1 it is a Built-in function, otherwise 0
  */
-void (*check_for_builtins(char **args))(char **args)
+int check_for_builtins(char **args)
 {
 	builtins_t builtins_list[] = {
 		{"exit", __exit},
@@ -24,15 +24,15 @@ void (*check_for_builtins(char **args))(char **args)
 	}
 
 	for (; builtins_list[i].name != NULL ; i++)
-	{
 		if (_strcmp(args[0], builtins_list[i].name) == 0)
 			break;
-	}
 
 	if (builtins_list[i].f != NULL)
+	{
 		builtins_list[i].f(*args);
-
-	return (builtins_list[i].f);
+		return (1);
+	}
+	return (0);
 }
 
 /**
