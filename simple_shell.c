@@ -144,7 +144,7 @@ int exec_line(char **args)
 				{
 				/*__error(shell_name, line_counter, args[0]);*/
 				_free(args);
-				exit(127);
+				exit(126);
 				}
 
 			}
