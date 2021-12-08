@@ -123,7 +123,7 @@ int exec_line(char **args)
 	pid_t pid;
 	int status;
 
-	if (args[0] != NULL && args != NULL)
+	if (args[0] != NULL || args != NULL)
 	{
 		pid = fork();
 
