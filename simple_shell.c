@@ -148,6 +148,11 @@ int exec_line(char **args)
 				}
 
 			}
+			else
+			{
+				_free(args);
+				exit(127);
+			}
 
 
 		}
