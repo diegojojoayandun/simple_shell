@@ -112,7 +112,7 @@ char **tokenize_line(char *line)
 }
 
 /**
- * exec_line - function to execute the commands parser.
+ * exec_line - function to execute the commands parser
  *
  * @args: double pointer that contains the parser commands
  *
@@ -121,7 +121,6 @@ char **tokenize_line(char *line)
 int exec_line(char **args)
 {
 	pid_t pid;
-	char *path = NULL;
 	int status;
 
 	if (args[0] != NULL && args != NULL)
@@ -136,25 +135,12 @@ int exec_line(char **args)
 
 		if (pid == 0)
 		{
-			path = get_path(args[0]);
-
-			if (path != NULL)
+			if (execve(get_path(args[0]), args, NULL) == -1)
 			{
-				if (execve(get_path(path), args, NULL) == -1)
-				{
 				/*__error(shell_name, line_counter, args[0]);*/
-				_free(args);
-				exit(126);
-				}
-
-			}
-			else
-			{
 				_free(args);
 				exit(127);
 			}
-
-
 		}
 		else
 		{
