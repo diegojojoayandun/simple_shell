@@ -22,6 +22,8 @@ int main(int argc, char *argv[])
 	do {
 		line = read_line();
 
+		if (*line == '\n' || *line == '\t')
+			continue;
 		if (check_for_builtins(&line))
 		{
 			free(line);
