@@ -23,7 +23,10 @@ int main(int argc, char *argv[])
 		line = read_line();
 
 		if (*line == '\n' || *line == '\t')
+		{
+			free(line);
 			continue;
+		}
 		if (check_for_builtins(&line))
 		{
 			free(line);
