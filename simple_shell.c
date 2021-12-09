@@ -22,11 +22,6 @@ int main(int argc, char *argv[])
 	do {
 		line = read_line();
 
-		if (*line == '\n' || *line == '\t')
-		{
-			free(line);
-			continue;
-		}
 		if (check_for_builtins(&line))
 		{
 			free(line);
@@ -89,11 +84,8 @@ char *read_line(void)
 char **tokenize_line(char *line)
 {
 	int bufsize = BUFSIZE, i = 0;
-	char **tokens ;
+	char **tokens;
 	char *token = NULL;
-
-	if (_strlen(line) == '\0')
-		printf("esta vacia linea");
 
 	tokens = malloc(bufsize * sizeof(char *));
 
@@ -154,7 +146,6 @@ int exec_line(char **args)
 		{
 			if (execve(get_path(args[0]), args, environ) == -1)
 			{
-				/*__error(shell_name, line_counter, args[0]);*/
 				_free(args);
 				exit(127);
 			}

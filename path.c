@@ -38,6 +38,10 @@ char *get_path(char *cmd)
 		return (cmd);
 
 	path = _getenv("PATH");
+
+	if (path == NULL)
+		return (cmd);
+
 	str_cpy = cmd;
 	cmd = _strcat("/", cmd);
 	token = strtok(path, ":");
