@@ -25,37 +25,37 @@ char *_getenv(char *input)
 /**
  * get_path - function to get the path to executable
  *
- * @arg: arg to find path
+ * @cmd: cmd to find path
  *
  * Return: char pointer with the path
  */
-char *get_path(char *arg)
+char *get_path(char *cmd)
 {
 	char *path, *token, *newpath, *str_cpy;
 	struct stat stats;
 
-	if (stat(arg, &stats) == 0)
-		return (arg);
+	if (stat(cmd, &stats) == 0)
+		return (cmd);
 
 	path = _getenv("PATH");
-	str_cpy = arg;
-	arg = _strcat("/", arg);
+	str_cpy = cmd;
+	cmd = _strcat("/", cmd);
 	token = strtok(path, ":");
 
 	while (token)
 	{
-		newpath = _strcat(token, arg);
+		newpath = _strcat(token, cmd);
 
 		if (stat(newpath, &stats) == 0)
 		{
-			free(arg);
+			free(cmd);
 			return (newpath);
 		}
 		free(newpath);
 		token = strtok(NULL, ":");
 	}
 	__error(shell_name, line_counter, str_cpy);
-	free(arg);
+	free(cmd);
 
-	return (NULL);
+	return (str_cpy);
 }
