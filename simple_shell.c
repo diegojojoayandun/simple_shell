@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	do {
 		line = read_line();
 
-		if (*line == '\n' || *line == '\t' || *line == ' ')
+		if (*line == '\n' || *line == '\t')
 		{
 			free(line);
 			continue;
@@ -34,6 +34,13 @@ int main(int argc, char *argv[])
 		}
 
 		args = tokenize_line(line);
+
+		if (*args == NULL)
+		{
+			free(args);
+			free(line);
+			continue;
+		}
 		exec_line(args);
 		free(args);
 		free(line);
@@ -82,8 +89,13 @@ char *read_line(void)
 char **tokenize_line(char *line)
 {
 	int bufsize = BUFSIZE, i = 0;
-	char **tokens = malloc(bufsize * sizeof(char *));
+	char **tokens ;
 	char *token = NULL;
+
+	if (_strlen(line) == '\0')
+		printf("esta vacia linea");
+
+	tokens = malloc(bufsize * sizeof(char *));
 
 	if (tokens == NULL)
 	{
@@ -91,7 +103,7 @@ char **tokenize_line(char *line)
 		exit(EXIT_FAILURE);
 	}
 
-	token = strtok(line, " \t\n");
+	token = strtok(line, " \t\n\r");
 
 	while (token != NULL)
 	{
@@ -109,7 +121,7 @@ char **tokenize_line(char *line)
 				exit(EXIT_FAILURE);
 			}
 		}
-		token = strtok(NULL, " \t\n");
+		token = strtok(NULL, " \t\n\r");
 	}
 
 	tokens[i] = NULL;
