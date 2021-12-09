@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	do {
 		line = read_line();
 
-		if (*line == '\n' || *line == '\t')
+		if (*line == '\n' || *line == '\t' || *line == ' ')
 		{
 			free(line);
 			continue;
