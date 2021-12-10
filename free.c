@@ -23,3 +23,15 @@ void _free(char **ptr)
 
 	free(ptr);
 }
+/**
+ * _free_pointers - free memory from main pointers
+ * @line: pointer to line
+ * @args: pointer to args
+ *
+ */
+void _free_pointers(char *line, char **args)
+{
+	free(args);
+	free(line);
+
+}

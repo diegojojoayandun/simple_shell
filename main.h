@@ -59,6 +59,7 @@ void (*check_for_builtins(char **args))(char **args);
 void __exit(char **ptr);
 void __env(void);
 void _free(char **d_pointer);
+void _free_pointers(char *line, char **args);
 void __error(char *arg, int size, char *command);
 
 void sigint_handler(int sigint);

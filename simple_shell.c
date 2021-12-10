@@ -11,10 +11,10 @@
  */
 int main(int argc, char *argv[])
 {
-	char *line = NULL, **args = NULL;
+	char *line = NULL;
+	char **args = NULL;
 
 	(void)argc;
-
 	shell_name = argv[0];
 
 	signal(SIGINT, sigint_handler);
@@ -32,13 +32,11 @@ int main(int argc, char *argv[])
 
 		if (*args == NULL)
 		{
-			free(args);
-			free(line);
+			_free_pointers(line, args);
 			continue;
 		}
 		exec_line(args);
-		free(args);
-		free(line);
+		_free_pointers(line,args);
 	} while (1);
 
 	return (0);
@@ -90,10 +88,7 @@ char **tokenize_line(char *line)
 	tokens = malloc(bufsize * sizeof(char *));
 
 	if (tokens == NULL)
-	{
-		free(tokens);
 		exit(EXIT_FAILURE);
-	}
 
 	token = strtok(line, " \t\n\r");
 
@@ -109,7 +104,6 @@ char **tokenize_line(char *line)
 
 			if (!tokens)
 			{
-				free(tokens);
 				exit(EXIT_FAILURE);
 			}
 		}
