@@ -149,5 +149,5 @@ int exec_line(char **args)
 			wait(&status);
 		}
 	}
-	return (0);
+	return (status);
 }

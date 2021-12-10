@@ -20,7 +20,7 @@ void (*check_for_builtins(char **args))(char **args)
 	if (args[0] == NULL)
 	{
 		free(args);
-		exit(0);
+		exit(127);
 	}
 
 	for (; builtins_list[i].name != NULL ; i++)
