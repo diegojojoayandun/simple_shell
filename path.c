@@ -40,7 +40,7 @@ char *get_path(char *cmd)
 	path = _getenv("PATH");
 
 	if (path == NULL)
-		return (cmd);
+		exit(127);
 
 	str_cpy = cmd;
 	cmd = _strcat("/", cmd);

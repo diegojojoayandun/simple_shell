@@ -126,6 +126,7 @@ int exec_line(char **args)
 	pid_t pid;
 	int status = 0;
 
+
 	if (args[0] != NULL || args != NULL)
 	{
 		pid = fork();
@@ -138,7 +139,7 @@ int exec_line(char **args)
 
 		if (pid == 0)
 		{
-			if (execve(get_path(args[0]), args, environ) == -1)
+			if (execve(get_path(*args), args, environ) == -1)
 			{
 				_free(args);
 				if (errno == ENOENT)
