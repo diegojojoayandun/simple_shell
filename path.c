@@ -31,7 +31,7 @@ char *_getenv(char *input)
  */
 char *get_path(char *cmd)
 {
-	char *path, *token, *newpath, *str_cpy;
+	char *path = NULL, *token, *newpath, *str_cpy;
 	struct stat stats;
 
 	if (stat(cmd, &stats) == 0)
