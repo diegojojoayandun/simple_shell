@@ -126,8 +126,6 @@ int exec_line(char **args)
 	pid_t pid;
 	int status = 0;
 
-	printf("LLEGO AQUI %d\n" , status);
-
 	if (args[0] != NULL || args != NULL)
 	{
 		pid = fork();
@@ -140,7 +138,6 @@ int exec_line(char **args)
 
 		if (pid == 0)
 		{
-			printf("ES HIJO\n");
 			if (execve(get_path(args[0]), args, environ) == -1)
 			{
 				_free(args);
