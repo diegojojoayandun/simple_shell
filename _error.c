@@ -54,6 +54,6 @@ void sigint_handler(int sigint)
 	(void)sigint;
 	signal(SIGINT, sigint_handler);
 	_puts("\n");
-	_puts("$ ");
+	_puts("\033[0;34m$ \033[0;35m");
 	fflush(stdout);
 }

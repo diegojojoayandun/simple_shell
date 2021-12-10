@@ -59,7 +59,7 @@ char *read_line(void)
 	fflush(stdin);
 
 	if (isatty(STDIN_FILENO))
-		_puts("$ ");
+		_puts("\033[0;34m$ \033[0;35m");
 
 	if (getline(&buffer, &buffer_size, stdin) == EOF)
 	{
@@ -124,7 +124,9 @@ char **tokenize_line(char *line)
 int exec_line(char **args)
 {
 	pid_t pid;
-	int status;
+	int status = 0;
+
+	printf("LLEGO AQUI %d\n" , status);
 
 	if (args[0] != NULL || args != NULL)
 	{
@@ -138,10 +140,14 @@ int exec_line(char **args)
 
 		if (pid == 0)
 		{
+			printf("ES HIJO\n");
 			if (execve(get_path(args[0]), args, environ) == -1)
 			{
 				_free(args);
-				exit(127);
+				if (errno == ENOENT)
+					exit(127);
+				if (errno == EACCES)
+					exit(126);
 			}
 		}
 		else

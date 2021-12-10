@@ -9,6 +9,7 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <signal.h>
+#include <errno.h>
 
 #define BUFSIZE 64
 
@@ -37,7 +38,7 @@ typedef struct built_ins
 
 extern char **environ;
 char *shell_name;
-char *prompt;
+
 unsigned int line_counter;
 /* strings */
 int _strlen(const char *s);
@@ -63,7 +64,5 @@ void _free_pointers(char *line, char **args);
 void __error(char *arg, int size, char *command);
 
 void sigint_handler(int sigint);
-
-void custom_prompt(char *color_prompt, char *color_text);
 
 #endif
