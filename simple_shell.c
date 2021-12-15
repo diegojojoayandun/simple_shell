@@ -90,7 +90,7 @@ char **tokenize_line(char *line)
 	if (tokens == NULL)
 		exit(EXIT_FAILURE);
 
-	token = strtok(line, " \t\n\r");
+	token = strtok(line, " \t\n\r\a");
 
 	while (token != NULL)
 	{
@@ -107,7 +107,7 @@ char **tokenize_line(char *line)
 				exit(EXIT_FAILURE);
 			}
 		}
-		token = strtok(NULL, " \t\n\r");
+		token = strtok(NULL, " \t\n\r\a");
 	}
 
 	tokens[i] = NULL;
@@ -125,7 +125,6 @@ int exec_line(char **args)
 {
 	pid_t pid;
 	int status = 0;
-
 
 	if (args[0] != NULL || args != NULL)
 	{
