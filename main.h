@@ -12,6 +12,8 @@
 #include <errno.h>
 
 #define BUFSIZE 64
+#define false 0
+#define true 1
 
 #define NONE "\033[m"
 #define RED "\033[1;37;41m"
